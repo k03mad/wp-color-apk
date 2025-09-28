@@ -1,1 +1,1 @@
-# wp-color-apk
+Android app for creating and saving wallpapers from selected colors
