@@ -6,22 +6,16 @@
     "useIgnoreFile": true
   },
   "linter": {
-    "enabled": true,
     "rules": {
       "recommended": true
-    },
-    "domains": {
-      "react": "recommended"
     }
   },
   "assist": {
-    "enabled": true,
     "actions": {
       "recommended": true
     }
   },
   "formatter": {
-    "enabled": true,
     "indentStyle": "space"
   },
   "javascript": {

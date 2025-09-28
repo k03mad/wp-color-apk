@@ -45,7 +45,7 @@
     "build": "npm run build:arm64 && npm run build:copy",
     "build:arm64": "cd android && ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a && cd ..",
     "build:copy": "cp android/app/build/outputs/apk/release/app-release.apk ~/Yandex/Download/wp-arm64-v8a-$(date +%Y%m%d_%H%M%S).apk",
-    "lint": "biome check && tsc --noEmit",
+    "lint": "biome check --error-on-warnings && tsc --noEmit",
     "prepare": "husky"
   }
 }
