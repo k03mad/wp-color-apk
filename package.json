@@ -37,7 +37,7 @@
     "@types/jest": "30.0.0",
     "@types/react": "19.1.0",
     "husky": "9.1.7",
-    "typescript": "5.9.2"
+    "typescript": "5.9.3"
   },
   "scripts": {
     "start": "npm run clean:android && react-native run-android",
