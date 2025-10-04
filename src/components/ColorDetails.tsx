@@ -149,6 +149,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
           <Text style={[styles.colorLabel, { color: theme.text }]}>HEX</Text>
           <TextInput
             style={[
+              styles.baseInput,
               styles.colorInput,
               {
                 color: theme.text,
@@ -156,7 +157,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
                 backgroundColor: theme.background,
               },
               hexError && { borderColor: UI_COLORS.ERROR },
-              hexFocused && styles.colorInputFocused,
+              hexFocused && styles.inputFocused,
             ]}
             value={hexValue}
             onChangeText={handleHexChange}
@@ -180,6 +181,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
           <View style={styles.rgbInputs}>
             <TextInput
               style={[
+                styles.baseInput,
                 styles.rgbInput,
                 {
                   color: theme.text,
@@ -187,7 +189,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
                   backgroundColor: theme.background,
                 },
                 rgbError && { borderColor: UI_COLORS.ERROR },
-                rFocused && styles.rgbInputFocused,
+                rFocused && styles.inputFocused,
               ]}
               value={rValue}
               onChangeText={(value) =>
@@ -203,6 +205,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
             />
             <TextInput
               style={[
+                styles.baseInput,
                 styles.rgbInput,
                 {
                   color: theme.text,
@@ -210,7 +213,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
                   backgroundColor: theme.background,
                 },
                 rgbError && { borderColor: UI_COLORS.ERROR },
-                gFocused && styles.rgbInputFocused,
+                gFocused && styles.inputFocused,
               ]}
               value={gValue}
               onChangeText={(value) =>
@@ -226,6 +229,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
             />
             <TextInput
               style={[
+                styles.baseInput,
                 styles.rgbInput,
                 {
                   color: theme.text,
@@ -233,7 +237,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
                   backgroundColor: theme.background,
                 },
                 rgbError && { borderColor: UI_COLORS.ERROR },
-                bFocused && styles.rgbInputFocused,
+                bFocused && styles.inputFocused,
               ]}
               value={bValue}
               onChangeText={(value) =>

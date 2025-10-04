@@ -11,12 +11,12 @@ interface SaveButtonProps {
 const SaveButton: React.FC<SaveButtonProps> = ({ selectedColor, onPress }) => {
   return (
     <TouchableOpacity
-      style={[styles.generateButton, { backgroundColor: selectedColor }]}
+      style={[styles.saveButton, { backgroundColor: selectedColor }]}
       onPress={onPress}
     >
       <Text
         style={[
-          styles.generateButtonText,
+          styles.saveButtonText,
           {
             color: getContrastColor(selectedColor),
           },

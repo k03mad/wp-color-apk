@@ -1,6 +1,14 @@
 import { StyleSheet } from 'react-native';
 import { UI_COLORS } from '../constants/colors';
 
+const baseShadow = {
+  shadowColor: UI_COLORS.BLACK,
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.25,
+  shadowRadius: 4,
+  elevation: 4,
+};
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -10,13 +18,9 @@ export const styles = StyleSheet.create({
     margin: 16,
     borderRadius: 12,
     overflow: 'hidden',
-    elevation: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.15)',
+    borderColor: UI_COLORS.BORDER_LIGHT,
+    ...baseShadow,
   },
   wallpaperPreview: {
     flex: 1,
@@ -39,14 +43,10 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 20,
     paddingBottom: 34,
-    backgroundColor: 'rgba(28, 28, 30, 0.98)',
+    backgroundColor: UI_COLORS.BACKGROUND_DARK,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.15)',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    elevation: 12,
+    borderTopColor: UI_COLORS.BORDER_LIGHT,
+    ...baseShadow,
   },
   section: {
     marginBottom: 16,
@@ -54,23 +54,19 @@ export const styles = StyleSheet.create({
   colorInfoContainer: {
     marginTop: 8,
   },
-  generateButton: {
+  saveButton: {
     borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.15)',
+    borderColor: UI_COLORS.BORDER_LIGHT,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
+    ...baseShadow,
   },
-  generateButtonText: {
+  saveButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: 'white',
+    color: UI_COLORS.WHITE,
   },
   presetSection: {
     marginTop: 10,
@@ -88,61 +84,55 @@ export const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     margin: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 4,
+    ...baseShadow,
   },
   selectedPresetColor: {
     transform: [{ scale: 1.1 }],
   },
-  colorPicker: {
+  colorWheel: {
     height: 250,
     width: '100%',
   },
-  colorPickerContainer: {
+  colorWheelContainer: {
     position: 'relative',
     borderRadius: 8,
     overflow: 'hidden',
     padding: 10,
   },
   toastContainer: {
-    backgroundColor: 'rgba(28, 28, 30, 0.95)',
+    backgroundColor: UI_COLORS.BACKGROUND_TOAST,
     minHeight: 100,
     margin: 11,
     borderRadius: 12,
     padding: 14,
     borderWidth: 1,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 4,
+    ...baseShadow,
   },
   toastText: {
-    color: 'white',
+    color: UI_COLORS.WHITE,
     fontSize: 14,
     lineHeight: 20,
     flex: 1,
   },
   toastSuccessBorder: {
-    borderColor: 'rgba(76, 175, 80, 0.3)',
+    borderColor: UI_COLORS.SUCCESS_BORDER,
   },
   toastErrorBorder: {
-    borderColor: 'rgba(244, 67, 54, 0.3)',
+    borderColor: UI_COLORS.ERROR_BORDER,
   },
   toastInfoBorder: {
-    borderColor: 'rgba(33, 150, 243, 0.3)',
+    borderColor: UI_COLORS.INFO_BORDER,
   },
-  rgbInput: {
-    flex: 1,
+  baseInput: {
     height: 40,
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 12,
     fontSize: 14,
     textAlign: 'center',
+  },
+  rgbInput: {
+    flex: 1,
   },
   colorInputRow: {
     flexDirection: 'row',
@@ -157,19 +147,10 @@ export const styles = StyleSheet.create({
   },
   colorInput: {
     flex: 1,
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    fontSize: 14,
-    textAlign: 'center',
     fontFamily: 'monospace',
     marginRight: 8,
   },
-  colorInputFocused: {
-    borderColor: UI_COLORS.FOCUS,
-  },
-  rgbInputFocused: {
+  inputFocused: {
     borderColor: UI_COLORS.FOCUS,
   },
   rgbInputs: {
@@ -190,20 +171,20 @@ export const styles = StyleSheet.create({
   copyButtonIcon: {
     fontSize: 16,
   },
-  colorPickerApplyButton: {
+  colorWheelApplyButton: {
     height: 40,
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderColor: UI_COLORS.BORDER_MEDIUM,
     marginTop: 20,
     marginBottom: 5,
     marginHorizontal: 16,
     alignSelf: 'center',
     paddingHorizontal: 20,
   },
-  colorPickerApplyText: {
+  colorWheelApplyText: {
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -219,12 +200,12 @@ export const styles = StyleSheet.create({
     pointerEvents: 'box-none',
   },
   previewResolutionContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: UI_COLORS.SHADOW,
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderColor: UI_COLORS.BORDER_MEDIUM,
   },
   previewResolutionInfo: {
     alignItems: 'center',
@@ -232,7 +213,7 @@ export const styles = StyleSheet.create({
   previewResolutionText: {
     fontSize: 12,
     fontFamily: 'monospace',
-    color: '#FFFFFF',
+    color: UI_COLORS.WHITE,
     marginBottom: 2,
     fontWeight: '500',
   },

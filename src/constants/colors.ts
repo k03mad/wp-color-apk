@@ -71,4 +71,14 @@ export const PRESET_BLACK_COLORS = [
 export const UI_COLORS = {
   ERROR: '#FF5252',
   FOCUS: '#007AFF',
+  BLACK: '#000000',
+  WHITE: '#FFFFFF',
+  SHADOW: 'rgba(0, 0, 0, 0.7)',
+  BORDER_LIGHT: 'rgba(255, 255, 255, 0.15)',
+  BORDER_MEDIUM: 'rgba(255, 255, 255, 0.2)',
+  BACKGROUND_DARK: 'rgba(28, 28, 30, 0.98)',
+  BACKGROUND_TOAST: 'rgba(28, 28, 30, 0.95)',
+  SUCCESS_BORDER: 'rgba(76, 175, 80, 0.3)',
+  ERROR_BORDER: 'rgba(244, 67, 54, 0.3)',
+  INFO_BORDER: 'rgba(33, 150, 243, 0.3)',
 };
