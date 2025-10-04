@@ -3,15 +3,12 @@ import { Text, TouchableOpacity } from 'react-native';
 import { styles } from '../styles/styles';
 import { getContrastColor } from '../utils/color';
 
-interface GenerateButtonProps {
+interface SaveButtonProps {
   selectedColor: string;
   onPress: () => void;
 }
 
-const GenerateButton: React.FC<GenerateButtonProps> = ({
-  selectedColor,
-  onPress,
-}) => {
+const SaveButton: React.FC<SaveButtonProps> = ({ selectedColor, onPress }) => {
   return (
     <TouchableOpacity
       style={[styles.generateButton, { backgroundColor: selectedColor }]}
@@ -31,4 +28,4 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({
   );
 };
 
-export default GenerateButton;
+export default SaveButton;

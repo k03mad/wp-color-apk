@@ -67,3 +67,8 @@ export const PRESET_BLACK_COLORS = [
   '#DCDCDC',
   '#E6E6E6',
 ];
+
+export const UI_COLORS = {
+  ERROR: '#FF5252',
+  FOCUS: '#007AFF',
+};

@@ -2,6 +2,7 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { UI_COLORS } from '../constants/colors';
 import { theme } from '../constants/theme';
 import { styles } from '../styles/styles';
 import { hexToRgb, isValidRgb, rgbToHex } from '../utils/color';
@@ -29,11 +30,17 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
   const [bValue, setBValue] = useState('0');
   const [hexError, setHexError] = useState(false);
   const [rgbError, setRgbError] = useState(false);
+  const [hexFocused, setHexFocused] = useState(false);
+  const [rFocused, setRFocused] = useState(false);
+  const [gFocused, setGFocused] = useState(false);
+  const [bFocused, setBFocused] = useState(false);
 
   useEffect(() => {
     if (isFromPreset) {
       const currentHex = selectedColor.replace('#', '').toUpperCase();
       setHexValue(currentHex);
+      setHexError(false);
+      setRgbError(false);
 
       if (colorInfo) {
         setRValue(colorInfo.rgb.r.toString());
@@ -77,6 +84,7 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
 
       if (isValidRgb(rNum, gNum, bNum)) {
         setRgbError(false);
+        setHexError(false);
 
         const hexColor = rgbToHex(rNum, gNum, bNum);
         setHexValue(hexColor.replace('#', ''));
@@ -147,10 +155,13 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
                 borderColor: theme.border,
                 backgroundColor: theme.background,
               },
-              hexError && { borderColor: '#FF5252' },
+              hexError && { borderColor: UI_COLORS.ERROR },
+              hexFocused && styles.colorInputFocused,
             ]}
             value={hexValue}
             onChangeText={handleHexChange}
+            onFocus={() => setHexFocused(true)}
+            onBlur={() => setHexFocused(false)}
             placeholder="FFFFFF"
             placeholderTextColor={`${theme.text}80`}
             maxLength={6}
@@ -175,12 +186,15 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
                   borderColor: theme.border,
                   backgroundColor: theme.background,
                 },
-                rgbError && { borderColor: '#FF5252' },
+                rgbError && { borderColor: UI_COLORS.ERROR },
+                rFocused && styles.rgbInputFocused,
               ]}
               value={rValue}
               onChangeText={(value) =>
                 handleRgbInputChange(value, setRValue, rValue, gValue, bValue)
               }
+              onFocus={() => setRFocused(true)}
+              onBlur={() => setRFocused(false)}
               keyboardType="numeric"
               maxLength={3}
               placeholder="0"
@@ -195,12 +209,15 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
                   borderColor: theme.border,
                   backgroundColor: theme.background,
                 },
-                rgbError && { borderColor: '#FF5252' },
+                rgbError && { borderColor: UI_COLORS.ERROR },
+                gFocused && styles.rgbInputFocused,
               ]}
               value={gValue}
               onChangeText={(value) =>
                 handleRgbInputChange(value, setGValue, rValue, gValue, bValue)
               }
+              onFocus={() => setGFocused(true)}
+              onBlur={() => setGFocused(false)}
               keyboardType="numeric"
               maxLength={3}
               placeholder="0"
@@ -215,12 +232,15 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
                   borderColor: theme.border,
                   backgroundColor: theme.background,
                 },
-                rgbError && { borderColor: '#FF5252' },
+                rgbError && { borderColor: UI_COLORS.ERROR },
+                bFocused && styles.rgbInputFocused,
               ]}
               value={bValue}
               onChangeText={(value) =>
                 handleRgbInputChange(value, setBValue, rValue, gValue, bValue)
               }
+              onFocus={() => setBFocused(true)}
+              onBlur={() => setBFocused(false)}
               keyboardType="numeric"
               maxLength={3}
               placeholder="0"

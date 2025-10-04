@@ -1,14 +1,13 @@
-import Clipboard from '@react-native-clipboard/clipboard';
 import type React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Dimensions, ScrollView, StatusBar, View } from 'react-native';
+import { ScrollView, StatusBar, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import type ViewShot from 'react-native-view-shot';
 import ColorDetails from './components/ColorDetails';
-import ColorPicker from './components/ColorPicker';
 import ColorPreview from './components/ColorPreview';
-import GenerateButton from './components/GenerateButton';
+import ColorWheel from './components/ColorWheel';
 import PresetColors from './components/PresetColors';
+import SaveButton from './components/SaveButton';
 import ToastConfig from './components/ToastConfig';
 import { PRESET_BLACK_COLORS, PRESET_COLORS } from './constants/colors';
 import { theme } from './constants/theme';
@@ -27,18 +26,6 @@ const App: React.FC = () => {
   const viewShotRef = useRef<ViewShot>(null);
 
   const colorInfo = getColorInfo(selectedColor);
-
-  const copyToClipboard = useCallback((text: string) => {
-    Clipboard.setString(text);
-  }, []);
-
-  const handleCopyResolution = useCallback(() => {
-    const screenData = Dimensions.get('screen');
-    const pixelRatio = screenData.scale;
-    const width = screenData.width * pixelRatio;
-    const height = screenData.height * pixelRatio;
-    copyToClipboard(`${Math.round(width)} × ${Math.round(height)}`);
-  }, [copyToClipboard]);
 
   useEffect(() => {
     requestStoragePermission();
@@ -80,11 +67,7 @@ const App: React.FC = () => {
       <SafeAreaView
         style={[styles.container, { backgroundColor: theme.background }]}
       >
-        <ColorPreview
-          selectedColor={selectedColor}
-          viewShotRef={viewShotRef}
-          onCopyResolution={handleCopyResolution}
-        />
+        <ColorPreview selectedColor={selectedColor} viewShotRef={viewShotRef} />
 
         <ScrollView
           style={styles.controlPanel}
@@ -99,7 +82,7 @@ const App: React.FC = () => {
           />
 
           <View style={styles.section}>
-            <ColorPicker
+            <ColorWheel
               selectedColor={colorPickerSelectedColor}
               onColorChange={handleColorPickerChange}
               theme={theme}
@@ -121,7 +104,7 @@ const App: React.FC = () => {
         </ScrollView>
 
         <View style={styles.stickyButtonContainer}>
-          <GenerateButton
+          <SaveButton
             selectedColor={selectedColor}
             onPress={handleGenerateWallpaper}
           />

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { UI_COLORS } from '../constants/colors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -164,6 +165,12 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'monospace',
     marginRight: 8,
+  },
+  colorInputFocused: {
+    borderColor: UI_COLORS.FOCUS,
+  },
+  rgbInputFocused: {
+    borderColor: UI_COLORS.FOCUS,
   },
   rgbInputs: {
     flex: 1,

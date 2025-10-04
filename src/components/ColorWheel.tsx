@@ -5,14 +5,14 @@ import ColorPicker from 'react-native-wheel-color-picker';
 import type { Theme } from '../constants/theme';
 import { styles } from '../styles/styles';
 
-interface ColorPickerProps {
+interface ColorWheelProps {
   selectedColor: string;
   onColorChange: (color: string) => void;
   theme: Pick<Theme, 'cardBackground' | 'border' | 'text'>;
   onApplyColorPickerColor: () => void;
 }
 
-const ColorPickerComponent: React.FC<ColorPickerProps> = memo(
+const ColorWheel: React.FC<ColorWheelProps> = memo(
   ({ selectedColor, onColorChange, theme, onApplyColorPickerColor }) => {
     const debounceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
       null,
@@ -65,6 +65,6 @@ const ColorPickerComponent: React.FC<ColorPickerProps> = memo(
   },
 );
 
-ColorPickerComponent.displayName = 'ColorPickerComponent';
+ColorWheel.displayName = 'ColorWheel';
 
-export default ColorPickerComponent;
+export default ColorWheel;
