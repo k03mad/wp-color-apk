@@ -15,18 +15,18 @@ const PresetColors: React.FC<PresetColorsProps> = ({
   onSelectColor,
 }) => {
   return (
-    <View style={styles.presetSection}>
-      <View style={styles.presetColorsGrid}>
+    <View style={styles.presetsContainer}>
+      <View style={styles.presetsGrid}>
         {colors.map((color) => (
           <TouchableOpacity
             key={`color-${color}`}
             style={[
-              styles.presetColorBox,
+              styles.presetsColorBox,
               {
                 backgroundColor: color,
                 borderColor: theme.border,
               },
-              selectedColor === color && styles.selectedPresetColor,
+              selectedColor === color && styles.presetsSelected,
             ]}
             onPress={() => onSelectColor(color)}
           />

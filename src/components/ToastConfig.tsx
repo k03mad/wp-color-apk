@@ -8,18 +8,18 @@ const ToastConfig: React.FC = () => {
     <Toast
       config={{
         success: (props) => (
-          <View style={[styles.toastContainer, styles.toastSuccessBorder]}>
-            <Text style={styles.toastText}>{props.text1}</Text>
+          <View style={[styles.toastContainer, styles.toastSuccess]}>
+            <Text style={styles.toastMessage}>{props.text1}</Text>
           </View>
         ),
         error: (props) => (
-          <View style={[styles.toastContainer, styles.toastErrorBorder]}>
-            <Text style={styles.toastText}>{props.text1}</Text>
+          <View style={[styles.toastContainer, styles.toastError]}>
+            <Text style={styles.toastMessage}>{props.text1}</Text>
           </View>
         ),
         info: (props) => (
-          <View style={[styles.toastContainer, styles.toastInfoBorder]}>
-            <Text style={styles.toastText}>{props.text1}</Text>
+          <View style={[styles.toastContainer, styles.toastInfo]}>
+            <Text style={styles.toastMessage}>{props.text1}</Text>
           </View>
         ),
       }}

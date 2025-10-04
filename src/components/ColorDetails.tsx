@@ -144,20 +144,21 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
 
   return (
     <View style={styles.section}>
-      <View style={styles.colorInfoContainer}>
-        <View style={styles.colorInputRow}>
-          <Text style={[styles.colorLabel, { color: theme.text }]}>HEX</Text>
+      <View style={styles.detailsContainer}>
+        <View style={styles.detailsInputRow}>
+          <Text style={[styles.detailsInputLabel, { color: theme.text }]}>
+            HEX
+          </Text>
           <TextInput
             style={[
-              styles.baseInput,
-              styles.colorInput,
+              styles.detailsHexInput,
               {
                 color: theme.text,
                 borderColor: theme.border,
                 backgroundColor: theme.background,
               },
               hexError && { borderColor: UI_COLORS.ERROR },
-              hexFocused && styles.inputFocused,
+              hexFocused && styles.detailsInputFocused,
             ]}
             value={hexValue}
             onChangeText={handleHexChange}
@@ -169,27 +170,31 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
             autoCapitalize="characters"
             caretHidden={true}
           />
-          <TouchableOpacity style={styles.copyButton} onPress={handleCopyHex}>
-            <Text style={[styles.copyButtonIcon, { color: theme.text }]}>
+          <TouchableOpacity
+            style={styles.detailsCopyBtn}
+            onPress={handleCopyHex}
+          >
+            <Text style={[styles.detailsCopyIcon, { color: theme.text }]}>
               📋
             </Text>
           </TouchableOpacity>
         </View>
 
-        <View style={styles.colorInputRow}>
-          <Text style={[styles.colorLabel, { color: theme.text }]}>RGB</Text>
-          <View style={styles.rgbInputs}>
+        <View style={styles.detailsInputRow}>
+          <Text style={[styles.detailsInputLabel, { color: theme.text }]}>
+            RGB
+          </Text>
+          <View style={styles.detailsRgbContainer}>
             <TextInput
               style={[
-                styles.baseInput,
-                styles.rgbInput,
+                styles.detailsRgbField,
                 {
                   color: theme.text,
                   borderColor: theme.border,
                   backgroundColor: theme.background,
                 },
                 rgbError && { borderColor: UI_COLORS.ERROR },
-                rFocused && styles.inputFocused,
+                rFocused && styles.detailsInputFocused,
               ]}
               value={rValue}
               onChangeText={(value) =>
@@ -205,15 +210,14 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
             />
             <TextInput
               style={[
-                styles.baseInput,
-                styles.rgbInput,
+                styles.detailsRgbField,
                 {
                   color: theme.text,
                   borderColor: theme.border,
                   backgroundColor: theme.background,
                 },
                 rgbError && { borderColor: UI_COLORS.ERROR },
-                gFocused && styles.inputFocused,
+                gFocused && styles.detailsInputFocused,
               ]}
               value={gValue}
               onChangeText={(value) =>
@@ -229,15 +233,14 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
             />
             <TextInput
               style={[
-                styles.baseInput,
-                styles.rgbInput,
+                styles.detailsRgbField,
                 {
                   color: theme.text,
                   borderColor: theme.border,
                   backgroundColor: theme.background,
                 },
                 rgbError && { borderColor: UI_COLORS.ERROR },
-                bFocused && styles.inputFocused,
+                bFocused && styles.detailsInputFocused,
               ]}
               value={bValue}
               onChangeText={(value) =>
@@ -252,8 +255,11 @@ const ColorDetails: React.FC<ColorDetailsProps> = ({
               caretHidden={true}
             />
           </View>
-          <TouchableOpacity style={styles.copyButton} onPress={handleCopyRgb}>
-            <Text style={[styles.copyButtonIcon, { color: theme.text }]}>
+          <TouchableOpacity
+            style={styles.detailsCopyBtn}
+            onPress={handleCopyRgb}
+          >
+            <Text style={[styles.detailsCopyIcon, { color: theme.text }]}>
               📋
             </Text>
           </TouchableOpacity>

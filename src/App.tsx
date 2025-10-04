@@ -103,7 +103,7 @@ const App: React.FC = () => {
           />
         </ScrollView>
 
-        <View style={styles.stickyButtonContainer}>
+        <View style={styles.saveStickyContainer}>
           <SaveButton
             selectedColor={selectedColor}
             onPress={handleGenerateWallpaper}

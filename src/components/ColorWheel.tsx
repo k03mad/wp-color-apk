@@ -34,11 +34,11 @@ const ColorWheel: React.FC<ColorWheelProps> = memo(
     return (
       <View
         style={[
-          styles.colorWheelContainer,
+          styles.wheelContainer,
           { backgroundColor: theme.cardBackground },
         ]}
       >
-        <View style={styles.colorWheel}>
+        <View style={styles.wheelPicker}>
           <ColorPicker
             color={selectedColor}
             onColorChange={debouncedColorChange}
@@ -53,10 +53,10 @@ const ColorWheel: React.FC<ColorWheelProps> = memo(
           />
         </View>
         <TouchableOpacity
-          style={styles.colorWheelApplyButton}
+          style={styles.wheelApplyBtn}
           onPress={onApplyColorPickerColor}
         >
-          <Text style={[styles.colorWheelApplyText, { color: theme.text }]}>
+          <Text style={[styles.wheelApplyText, { color: theme.text }]}>
             Apply
           </Text>
         </TouchableOpacity>

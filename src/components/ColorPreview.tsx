@@ -27,23 +27,21 @@ const ColorPreview: React.FC<ColorPreviewProps> = ({
           width: screenWidth,
           height: screenHeight,
         }}
-        style={styles.wallpaperPreview}
+        style={styles.previewContent}
       >
         <View
-          style={[styles.wallpaperPreview, { backgroundColor: selectedColor }]}
+          style={[styles.previewContent, { backgroundColor: selectedColor }]}
         />
       </ViewShot>
       <View style={styles.previewOverlay}>
-        <View style={styles.previewResolutionContainer}>
-          <View style={styles.previewResolutionInfo}>
-            <Text style={styles.previewResolutionText} selectable={true}>
-              Screen: {Math.round(screenData.width)} ×{' '}
-              {Math.round(screenData.height)} (scale: {pixelRatio})
-            </Text>
-            <Text style={styles.previewResolutionText} selectable={true}>
-              Physical: {Math.round(screenWidth)} × {Math.round(screenHeight)}
-            </Text>
-          </View>
+        <View style={styles.previewResolutionBadge}>
+          <Text style={styles.previewResolutionText} selectable={true}>
+            Screen: {Math.round(screenData.width)} ×{' '}
+            {Math.round(screenData.height)} (scale: {pixelRatio})
+          </Text>
+          <Text style={styles.previewResolutionText} selectable={true}>
+            Physical: {Math.round(screenWidth)} × {Math.round(screenHeight)}
+          </Text>
         </View>
       </View>
     </View>
